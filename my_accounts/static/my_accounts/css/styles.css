@@ -1,0 +1,25 @@
+.main-wrapper {
+    margin: 150px 0px;
+}
+.error-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    color: #ff003e;
+}
+
+.form-div-wrapper {
+    margin: 0px auto;
+    margin-bottom: 30px;
+    width: 400px;
+}
+
+.submit-button {
+    width: 100%;
+}
+
+.sign-up-link-wrapper {
+    display: flex;
+    justify-content: center;
+}

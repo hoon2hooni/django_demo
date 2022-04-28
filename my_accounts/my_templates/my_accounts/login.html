@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>로그인 페이지</title>
+{% endblock %}
+
+
+{% block main %}
+
+<h1>로그인 페이지 입니다.</h1>
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+<form action="{% url 'my_accounts:login' %}" method='post'>
+    {% csrf_token %}
+    <div>
+        <input type="text" name="username" placeholder="아이디를 입력해주세요"/>
+    </div>
+    <div>
+        <input type="password" name="password" placeholder="비밀번호를 입력해주세요"/>
+    </div>
+    <button type="submit"> 로그인 </button>
+</form>
+
+{% endblock %}

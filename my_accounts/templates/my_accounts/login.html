@@ -1,0 +1,59 @@
+{% extends "blog_samples/base.html" %} 
+
+{% load static %}
+{% load socialaccount %}
+
+{% block css %}
+<link href="{% static "my_accounts/css/styles.css" %}" rel="stylesheet" />
+{% endblock %}
+{% block header %}
+<header 
+  class="masthead"
+  style="background-image: url('assets/img/home-bg.jpg'); height: 100px;padding:0px;"
+>
+</header>
+{% endblock %} 
+{% block main %} 
+<div class="container px-4 px-lg-5" >
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7 main-wrapper">
+      {% if error %}
+      <div class='error-wrapper'>
+        <span>{{ error }}</span>
+      </div>
+      {% endif %}
+      <form method="post" action="{% url 'my_accounts:login' %}" >
+        {% csrf_token %}
+        <div class="form-group form-div-wrapper">
+          <input
+            id="username"
+            type="text"
+            name="username"
+            placeholder="아이디"
+            class="form-control form-control-lg"
+          />
+        </div>
+        <div class="form-group form-div-wrapper">
+          <input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="비밀번호"
+            class="form-control form-control-lg"
+          />
+        </div>
+        <div class="form-group form-div-wrapper">
+          <button type="submit" class="btn btn-primary submit-button">로그인</button>
+        </div>
+      </form>
+      <form class="form-group form-div-wrapper" action="{% provider_login_url 'naver' %}" method='post' id='social-login'>
+        {% csrf_token %}
+        <button type="submit" form='social-login' class="btn btn-primary submit-button" style='background-color:#19ce60; border-color:#19ce60;'>네이버 로그인</button>
+      </form>
+      <div class="sign-up-link-wrapper">
+        <a href={% url "my_accounts:sign_up" %}>회원가입</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

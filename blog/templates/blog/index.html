@@ -1,0 +1,17 @@
+{% extends "base.html" %} 
+
+{% block title%}
+<title>블로그 글 목록</title>
+{% endblock %}
+
+{% block main %}
+<h1>블로그 글 목록입니다</h1>
+<ol>
+  {% for post in blog_posts_key %}
+  <li
+    ><a href="{% url "blog:detail" post.id %}">{{ post.title }}</a>
+    <a href="{% url "blog:edit" post.id %}">수정하기</a></li
+  >
+  {% endfor %}
+</ol>
+{% endblock %}

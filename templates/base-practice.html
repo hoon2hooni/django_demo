@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>base</title>
+  </head>
+  <body>
+    <h1
+      >오늘의 날씨는 {{ weather_data.weather }} 오늘의 온도는
+      {{weather_data.temperature}}
+    </h1>
+
+    <h2>{{ members.1 }}</h2>
+    
+    
+    {% for member in members %}
+    <p>{{member}}</p>
+    {% empty %}
+    <p>멋사 핑크 해체됨</p>
+    {% endfor %} 
+    
+    <p>멋사핑크 총 멤버수는 {{members|length}}</p>
+    
+    {% if members.1 == "hooni"%}
+    <p>후니</p>
+    {% elif members.1 == "janny" %}
+    <p>재니</p>
+    {% else %}
+    <p>nope</p>
+    {% endif %}
+    {#주석입니다.#}
+    {% comment %}
+    hjhjkhkjhkjhkjhkjhkjhjkhkjhkjhljhjkhjk
+    jkljlkjlkjkljlkjlkjlkjkljlkjlkjkjkjkl
+    jkljlkjlkjlkjkljlkjkljlkjkljlkjlk
+    {% endcomment %}
+  </body>
+</html>
